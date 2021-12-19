@@ -15,8 +15,8 @@ function SampleNextArrow(props) {
 
   return (
     <div
-      className={className,"cursor-pointer bottom-1/2 absolute flex items-center justify-center  right-8 z-10   rounded-full"}
-      style={{ ...style, display: "block", background: "" }}
+      className={className}
+      style={{ ...style, display: "block", background: "",position:"absolute", right:4 }}
       onClick={onClick}
       // className="cursor-pointer bottom-1/2 absolute flex items-center justify-center  right-8 z-10   rounded-full"
     >
@@ -29,12 +29,12 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-    className={className,"cursor-pointer bottom-1/2 absolute flex items-center justify-center  right-8 z-10   rounded-full"}
-      style={{ ...style, display: "block", background: "" }}
+    className={className}
+      style={{ ...style, display: "block", background: "",}}
       onClick={onClick}
       // className="absolute bottom-1/2 cursor-pointer flex items-center justify-center  left-8 z-10 rounded-full"
     >
-      <ArrowCircleLeftIcon className="h-8 w-8 text-green-300" />
+      <ArrowCircleLeftIcon className="h-8 w-8 text-green-300 ml-4" />
     </div>
   );
 }

@@ -1,9 +1,9 @@
-
+import { useState } from 'react';
 import Link from 'next/link'
 // import {Category}from "../MockData"
 // import {staticPages}from "../MockData"
 
-function HeaderMenu({changeMenu, menu}) {
+function HeaderMenu({changeMenu, navigation, categories}) {
 
   // const uniqueC = new Set()
 
@@ -13,39 +13,46 @@ function HeaderMenu({changeMenu, menu}) {
   //   return !isPresent
   // })
 
+  const [showCategories, setShowCategories]=useState(false)
+
     return (
       <div
-        className={
-          menu
-            ? `hidden`
-            : ` h-screen  justify-start bg-gray-50 absolute top-0 right-0 items-start w-64 justify-around text-gray-900 text-s`
+        className={` w-64  flex flex-col  ml-4 text-gray-900 text-s`
         }
       >
         {/* <div className="flex justify-end">
           <h1 onClick={() => changeMenu()} className="link py-4 pr-8">
             X
           </h1>
-        </div>
+        </div> */}
 
         <div className="mt-8">
-          <div>
-            {staticPages.map((p, i) => (
-              <div key={i}>
-                <Link href={`/${p.title}`}>
-                  <p className=" p-2 uppercase cursor-pointer link">{p.title}</p>
+          <div className='flex flex-col'>
+            {navigation.map((p) => (
+              <div key={p.id}>
+                <Link href={`/${p.title.toLowerCase()}`}>
+                  <p className=" p-2 uppercase cursor-pointer link">
+                    {p.title}
+                  </p>
                 </Link>
               </div>
             ))}
+            <p onClick ={()=>setShowCategories(!showCategories)}className=" p-2 uppercase cursor-pointer link">Category</p>
           </div>
 
-          {uniqueCategory.map((data) => (
-            <div key={data.id}>
-              <Link href={`/page/${data.category}`}>
-                <p className=" p-2  uppercase link">{data.category}</p>
-              </Link>
-            </div>
-          ))}
-        </div> */}
+          { showCategories&&( <div>
+            {categories.map((data) => (
+              <div key={data.id}>
+                <Link href={`/categories/${data.id}`}>
+                  <p className=" p-2 ml-4 uppercase link cursor-pointer bg-gray-200">{data.title}</p>
+                </Link>
+              </div>
+            ))}
+          </div>)
+           
+          }
+          
+        </div>
       </div>
     );
 }

@@ -11,7 +11,10 @@ function Layout({ children, navigation, category }) {
       {/* {router.route == "/products/[product]" ? null : <Header />} */}
         <div className="relative min-h-screen">
         {children}
+       
         <FooterSticky />
+        
+       
         </div>
      
  
