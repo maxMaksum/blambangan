@@ -1,6 +1,7 @@
 import ReactPlayer from "react-player/lazy";
 import { useState, useEffect } from "react";
 import { PlusIcon, XIcon } from "@heroicons/react/solid";
+import { XCircleIcon } from "@heroicons/react/outline";
 
 function Video({url, playVideo, watchVideo, showVideo }) {
 
@@ -26,8 +27,11 @@ function Video({url, playVideo, watchVideo, showVideo }) {
         </div>
         <div
           onClick={() => watchVideo()}
-          className="h-5 w-5 bg-green-500 top-4 right-2 absolute cursor-pointer rounded-full"
-        ></div>
+          className="top-4 right-2 absolute cursor-pointer rounded-full"
+        >
+          <XCircleIcon className="h-5 w-5 text-gray-50 font-bold "/>
+
+        </div>
       </div>
     
     </section>

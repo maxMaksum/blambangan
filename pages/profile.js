@@ -24,16 +24,7 @@ function profile({ myProfile, banner }) {
         ))}
       </div>
 
-      {/* <div className="bg-gray-100 mt-4 shadow-md">
-         {  value.map(p=>(
-              <Profile
-              key={p.id}
-              id={p.id}
-              title={p.title}
-              description={p.description}
-              />
-          ))}
-         </div> */}
+     
     </div>
   );
 }

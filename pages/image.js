@@ -8,7 +8,7 @@ import { graphCmsRequest } from "../lib/services";
 import Galery from "../components/card/Images";
 
 export default function image({ myPictures }) {
-  console.log(myPictures.images123);
+
   const myPicturesNew = myPictures.images123
   return (
     <div className={styles.container}>

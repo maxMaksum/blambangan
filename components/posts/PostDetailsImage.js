@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import { useState, useRef } from "react";
+import { PlayIcon } from "@heroicons/react/outline";
 
+PlayIcon
 function PostDetailsImage({ newFumi, watchVideo }) {
   const [showImage, setShowImage] = useState(false);
   const [newUrl, setNewUrl] = useState("");
@@ -31,9 +33,12 @@ function PostDetailsImage({ newFumi, watchVideo }) {
         />
         <div
           onClick={watchVideo}
-          className="absolute cursor-pointer bg-blue-500 w-20 text-center top-1/2 left-1/2 z-60"
+          className="absolute w-full h-full top-1/2"
         >
-          Play
+          <di className="cursor-pointer flex items-center justify-center">
+            <PlayIcon className="w-20 h-20 text-red-700 text-center" />
+          </di>
+          
         </div>
       </div>
 

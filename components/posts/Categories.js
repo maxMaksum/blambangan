@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 function Categories({ posts }) {
-  console.log(posts)
-  
+ 
   return (
     <div className="bg-white container mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-20">
       {posts?.map((p) => (

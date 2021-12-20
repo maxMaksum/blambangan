@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { HeaderSocial } from "../StaticData";
 // import useFetch, { HeaderData } from "../../lib/services";
 import { useState, useRef, useEffect } from "react";
@@ -12,9 +13,7 @@ import { graphQLClient, GraphCmsFether } from "../../lib/services";
 
 function Header() {
   // const newurl = `http://localhost:4000/headers`;
-
-  console.log(HeaderSocial)
-  const [displayMenu, setDisplayMenu]=useState(false)
+  const [displayMenu, setDisplayMenu] = useState(false);
   // const newHeader = () => {
 
   //   const myFetcher = async(query)=> await graphQLClient.request(query);
@@ -87,15 +86,19 @@ function Header() {
             </h1>
             <div className="flex items-center justify-start w-100">
               {HeaderSocial?.map((s) => (
-                <div key={s.id}className="p-2">
-           <Image 
-           src={`/images01/${s.image}`}
-           alt={s.title}
-           height={20}
-           width={20}
-           className='object-contain cursor-pointer'
-           />
-          </div>
+                <div key={s.id} className="p-2">
+                  <Link href={s.link}>
+                    <a target="_blank">
+                      <Image
+                        src={`/images01/${s.image}`}
+                        alt={s.title}
+                        height={20}
+                        width={20}
+                        className="object-contain cursor-pointer"
+                      />
+                    </a>
+                  </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -109,19 +112,26 @@ function Header() {
           
           "
           >
-            {displayMenu&& <div className="bg-gray-100 h-screen w-64 absolute -top-6 right-0 z-50">
-              <p className="text-2xl cursor-pointer font-bold text-right p-2 mr-4" onClick={()=>setDisplayMenu(!displayMenu)}>x</p>
-              <HeaderMenu navigation={myHeader} categories={myCategories}/>
-              </div>}
-           
+            {displayMenu && (
+              <div className="bg-gray-100 h-screen w-64 absolute -top-6 right-0 z-50">
+                <p
+                  className="text-2xl cursor-pointer font-bold text-right p-2 mr-4"
+                  onClick={() => setDisplayMenu(!displayMenu)}
+                >
+                  x
+                </p>
+                <HeaderMenu navigation={myHeader} categories={myCategories} />
+              </div>
+            )}
+
             <div
               // onClick={changeMenu}
               className="sm:hidden cursor-pointer mx-4 relative flex items-center"
             >
-              <MenuIcon 
-              onClick={()=>setDisplayMenu(!displayMenu)}
-              className="h-8" />
-              
+              <MenuIcon
+                onClick={() => setDisplayMenu(!displayMenu)}
+                className="h-8"
+              />
             </div>
           </div>
         </div>
