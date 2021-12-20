@@ -31,9 +31,11 @@ function HeaderMenu({changeMenu, navigation, categories}) {
             {navigation.map((p) => (
               <div key={p.id}>
                 <Link href={`/${p.title.toLowerCase()}`}>
+                  <a>
                   <p className=" p-2 uppercase cursor-pointer link">
                     {p.title}
                   </p>
+                  </a>
                 </Link>
               </div>
             ))}
@@ -44,7 +46,9 @@ function HeaderMenu({changeMenu, navigation, categories}) {
             {categories.map((data) => (
               <div key={data.id}>
                 <Link href={`/categories/${data.id}`}>
+                  <a>
                   <p className=" p-2 ml-4 uppercase link cursor-pointer bg-gray-200">{data.title}</p>
+                  </a>
                 </Link>
               </div>
             ))}
