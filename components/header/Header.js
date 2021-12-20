@@ -25,7 +25,7 @@ function Header() {
 
   const myHeader = GraphCmsFether(headerQuery)?.headers;
   const myCategories = GraphCmsFether(categoriesQuery)?.newCategories;
-  console.log(myCategories)
+  // console.log(myCategories)
   // const { header, error } = useSWR("123", newFetcher(headerQuery));
 
   // const fetcher = async () => await fetch(newurl).then((res) => res.json());
@@ -72,20 +72,20 @@ function Header() {
       {/* top header */}
       <div className="relative">
         <div className="flex items-center justify-between  h-20">
-          <div className="flex items-center justify-center space-x-4">
-            <div className="p-0  rounded-full flex items-center relative h-16 w-16 ml-4 p-2 rounded-full bg-green-500 shadow-2xl ">
+          <div className="flex items-center justify-center">
+            <div className="rounded-full flex items-center relative h-8 w-8 p-2 rounded-full bg-green-500 shadow-2xl ">
               <Image
                 onClick={() => router.push("/")}
                 src="/images01/LogoBalijava.png"
                 layout="fill"
-                className="cursor-pointer rounded-full"
+                className="cursor-pointer object-contain rounded-full "
                 alt="Bali Java Logo"
               />
             </div>
             <h1 className="text-s uppercase sm:text-s text-gray-900 cursor-pointer">
               BaliJava Spirit
             </h1>
-            <div className="flex items-center justify-between space-x-2 w-100">
+            <div className="flex items-center justify-start w-100">
               {HeaderSocial?.map((s) => (
                 <div key={s.id}className="p-2">
            <Image 
