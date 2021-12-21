@@ -72,19 +72,21 @@ function Header() {
       <div className="relative">
         <div className="flex items-center justify-between  h-20">
           <div className="flex items-center justify-center">
-            <div className="rounded-full flex items-center relative h-8 w-8 p-2 rounded-full bg-green-500 shadow-2xl ">
+            <div className="rounded-full flex items-center relative h-14 w-14 p-2 rounded-full bg-green-500 shadow-2xl mx-2">
               <Image
                 onClick={() => router.push("/")}
                 src="/images01/LogoBalijava.png"
                 layout="fill"
-                className="cursor-pointer object-contain rounded-full "
+                className="cursor-pointer object-cover rounded-full "
                 alt="Bali Java Logo"
               />
             </div>
             <h1 className="text-s uppercase sm:text-s text-gray-900 cursor-pointer">
               BaliJava Spirit
             </h1>
-            <div className="flex items-center justify-start w-100">
+         
+          </div>
+          <div className="flex items-center justify-start">
               {HeaderSocial?.map((s) => (
                 <div key={s.id} className="p-2">
                   <Link href={s.link}>
@@ -101,8 +103,6 @@ function Header() {
                 </div>
               ))}
             </div>
-          </div>
-
           {/* right */}
           <div className="hidden sm:flex flex-wrap  w-2/3 mr-10">
             <HeaderRight navigation={myHeader} categories={myCategories} />

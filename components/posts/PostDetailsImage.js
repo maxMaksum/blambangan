@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 import { PlayIcon } from "@heroicons/react/outline";
 
-PlayIcon
+
 function PostDetailsImage({ newFumi, watchVideo }) {
   const [showImage, setShowImage] = useState(false);
   const [newUrl, setNewUrl] = useState("");

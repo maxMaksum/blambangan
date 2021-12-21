@@ -17,7 +17,7 @@ function HeaderMenu({changeMenu, navigation, categories}) {
 
     return (
       <div
-        className={` w-64  flex flex-col  ml-4 text-gray-900 text-s`
+        className={` w-64  flex flex-col  ml-4 text-gray-900 text-s z-50`
         }
       >
         {/* <div className="flex justify-end">

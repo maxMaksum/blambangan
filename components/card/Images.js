@@ -2,12 +2,19 @@ import Masonry from "react-masonry-css";
 import { useState, useRef } from "react";
 import Image from "next/image";
 
-function Galery({ posts }) {
+function Galery({ myGalery}) {
   const [showImage, setShowImage] = useState(false);
-  const [imageCover, setImageCover] = useState("garment-2");
+  const [imageCover, setImageCover] = useState({ id: "ckvdhcmeg4sh30b88mezh0vd1", url: "https://media.graphcms.com/X24wFPrVQhmlisWo6J3r", width: 740, height: 1600 });
+
+  console.log(imageCover)
 
   const seeImage = (id) => {
     setShowImage(!showImage);
+    
+  };
+
+  const passImageCover =(id) => {
+   
     setImageCover(id);
     window.scrollTo({
       top: 0,
@@ -29,13 +36,15 @@ function Galery({ posts }) {
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {posts?.map((p) => (
+          {myGalery?.map((p) => (
             <div
+            onClick={() => passImageCover(p.images)}
+              
               key={p.id}
               className=" h-100 w-100 p-1 rounded-xl shadow-lg relative"
             >
               <Image
-                onClick={() => seeImage(p.image)}
+                onClick={() => seeImage()}
                 // src={`/images01/${p.image}.jpeg `}
                 src={p.images.url}
                 alt={p.images.url}
@@ -55,18 +64,26 @@ function Galery({ posts }) {
             : `h-screen w-full bg-gray-50 absolute top-0 left-0 z-50 flex items-center justify-center`
         }`}
       >
-        <Image
-          // src={imageCover}
-          src={`/images01/${imageCover}.jpeg`}
-          // src={imageCover}
-          layout="fill"
-          alt={"album"}
-          className="bg-contain bg-center bg-no-repeat h-96 w-100 mx-auto"
-        />
+        <div className="relative bg-gray-500 flex items-center justify-center">
+          <div className="h-100 w-100 bg-blue-500 relative">
+            <Image
+              // src={imageCover}
+                src={imageCover.url}
+                alt={imageCover.url}
+                width={imageCover.width}
+                height={imageCover.height}
+              // src={imageCover}
+              // layout="fill"
+              // alt={"album"}
+              className="bg-contain bg-center bg-no-repeat mx-auto"
+            />
+          </div>
+        </div>
+
         <div
           onClick={() => setShowImage(!showImage)}
-          className="absolute top-2 right-2 h-10 w-10 rounded-full bg-green-500 "
-        ></div>
+          className="absolute top-2 right-2 h-6 w-6 rounded-full bg-green-500 text-white flex items-center justify-center cursor-pointer shadow-lg p-2"
+        > <p>X</p> </div>
       </div>
     </div>
   );

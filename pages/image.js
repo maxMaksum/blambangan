@@ -19,7 +19,7 @@ export default function image({ myPictures }) {
       </Head>
 
       <main className={styles.main}>
-        <Galery posts={myPicturesNew} />
+        <Galery myGalery={myPicturesNew} />
         {/* <Post posts={posts} /> */}
       </main>
 

@@ -1,17 +1,16 @@
 import React from "react";
 import Profile from "../components/card/Profile";
 
-
+import MyBanner from "../components/card/Banner";
 import { servicesQuery, bannersQuery , profilesQuery} from "../lib/graphql";
 import { graphCmsRequest, getServicesDetails } from "../lib/services";
-import { getProducts } from "../lib/services";
-function profile({ myProfile, banner }) {
+// import { getProducts } from "../lib/services";
+function profile({ myProfile, myBanner }) {
 
-  console.log(myProfile)
   return (
     <div className="mt-20">
       <div>
-        {/* <Banner banner={banner} /> */}
+        <MyBanner banner={myBanner} />
       </div>
       <div>
         {myProfile.map((p) => (
@@ -40,6 +39,7 @@ export async function getStaticProps() {
   return {
     props: {
       myProfile:myProfile.profiles,
+      myBanner:myBanner.banners
      
     },
   };
