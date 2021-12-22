@@ -1,7 +1,7 @@
 import ReactPlayer from "react-player/lazy"
 import { XIcon } from "@heroicons/react/solid";
 
-function Video({
+function VideoHome({
   data,
   id,
   url,
@@ -37,4 +37,4 @@ function Video({
   );
 }
 
-export default Video;
+export default VideoHome;

@@ -6,8 +6,6 @@ function Galery({ myGalery}) {
   const [showImage, setShowImage] = useState(false);
   const [imageCover, setImageCover] = useState({ id: "ckvdhcmeg4sh30b88mezh0vd1", url: "https://media.graphcms.com/X24wFPrVQhmlisWo6J3r", width: 740, height: 1600 });
 
-  console.log(imageCover)
-
   const seeImage = (id) => {
     setShowImage(!showImage);
     

@@ -10,9 +10,11 @@ function Video({
   description,
   playVideo,
   watchVideo,
+  closeVideo,
   showVideo,
 }) {
   
+ 
   return (
     <section
       className={
@@ -22,13 +24,11 @@ function Video({
       }
     >
       <div className="flex flex-col w-100  relative z-50">
-        {/* <div
-          onClick={() => watchVideo()}
-          className="h-10 w-10 bg-gray-500 top-20 right-100 absolute cursor-pointer rounded-full"
-        >
-          {" "}
-          Close{" "}
-        </div> */}
+       
+      <div
+          onClick={closeVideo}
+          className="absolute top-2 right-2 h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center cursor-pointer shadow-lg p-2"
+        > <p>X</p> </div>
         <div className="h-96 sm:h-screen">
           <ReactPlayer
             config={{

@@ -1,14 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import Profile from "../components/card/Profile";
-
 import MyBanner from "../components/card/Banner";
-import { servicesQuery, bannersQuery , profilesQuery} from "../lib/graphql";
-import { graphCmsRequest, getServicesDetails } from "../lib/services";
-// import { getProducts } from "../lib/services";
-function profile({ myProfile, myBanner }) {
+import {bannersQuery , profilesQuery} from "../lib/graphql";
+import { graphCmsRequest } from "../lib/services";
+import { UserContext } from "../components/card/Layout";
+
+function MyProfile({ myProfile, myBanner }) {
+  const { smallMenu, setSmallMenu } = useContext(UserContext);
 
   return (
-    <div className="mt-20">
+    <div className="mt-20" onClick= {() => setSmallMenu(false)} >
       <div>
         <MyBanner banner={myBanner} />
       </div>
@@ -28,7 +29,7 @@ function profile({ myProfile, myBanner }) {
   );
 }
 
-export default profile;
+export default MyProfile;
 
 export async function getStaticProps() {
   const myProfile = await graphCmsRequest(profilesQuery);

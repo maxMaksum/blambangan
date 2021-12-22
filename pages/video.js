@@ -1,16 +1,16 @@
-import React from "react";
-import Header from "../components/header/Header";
+import React, { useState, useContext } from "react";
 import Video from "../components/video copy/Video";
-// import { getProducts } from "../lib/services";
-import { useState } from "react";
+import { UserContext } from "../components/card/Layout";
 
 function NewVideo({ posts, results }) {
+  const { smallMenu, setSmallMenu } = useContext(UserContext);
+
   const [showVideo, setShowVideo] = useState(true);
   const [data, setData] = useState();
 
-  const youtubeUrl = results;
-  const newUrl = youtubeUrl?.map((y) => y.snippet.resourceId.videoId);
-  const newImage = youtubeUrl?.map((y) => y.snippet.thumbnails.high.url);
+ 
+  // const newUrl = youtubeUrl?.map((y) => y.snippet.resourceId.videoId);
+  // const newImage = youtubeUrl?.map((y) => y.snippet.thumbnails.high.url);
 
   const watchVideo = (p) => {
     setShowVideo(!showVideo);
@@ -22,16 +22,15 @@ function NewVideo({ posts, results }) {
     });
   };
 
-  // const seeImage = (id) => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: "smooth",
-  //   });
-  // };
+  const closeVideo = () => {
+    setShowVideo(!showVideo);
+    setData("");
+    console.log("close");
+  };
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
+      <div onClick= {() => setSmallMenu(false)} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
         {results?.map((p) => (
           <div
             //   onClick={() => changeBackGroundColor(p.id)}
@@ -78,6 +77,7 @@ function NewVideo({ posts, results }) {
       <Video
         watchVideo={watchVideo}
         showVideo={showVideo}
+        closeVideo={closeVideo}
         data={data}
         id={data?.id}
         url={data}

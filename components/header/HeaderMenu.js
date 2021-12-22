@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Link from 'next/link'
 // import {Category}from "../MockData"
 // import {staticPages}from "../MockData"
-
+import { UserContext } from '../card/Layout';
 function HeaderMenu({changeMenu, navigation, categories}) {
+  
+  // const {smallMenu, setSmallMenu} = useContext(UserContext)
+
 
   // const uniqueC = new Set()
 

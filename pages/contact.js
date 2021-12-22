@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import ContactForm from "../components/card/ContactForm";
 import Header from "../components/header/Header";
+import { UserContext } from "../components/card/Layout";
 
-function contact() {
+function Contact() {
+  const { smallMenu, setSmallMenu } = useContext(UserContext);
+
   return (
     <div>
-      <main>
+      <main onClick= {() => setSmallMenu(false)}>
         {/* <Header /> */}
-      <ContactForm/>
+        <ContactForm />
       </main>
     </div>
   );
 }
 
-export default contact;
+export default Contact;

@@ -2,16 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeaderSocial } from "../StaticData";
 // import useFetch, { HeaderData } from "../../lib/services";
-import { useState, useRef, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { MenuIcon, SearchIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import HeaderMenu from "./HeaderMenu";
 import HeaderRight from "./HeaderRight";
 import { headerQuery, categoriesQuery } from "../../lib/graphql";
-import { graphQLClient, GraphCmsFether } from "../../lib/services";
+import {GraphCmsFether } from "../../lib/services";
+import { UserContext } from '../card/Layout';
 
 function Header() {
+  const {smallMenu, setSmallMenu} = useContext(UserContext)
+
   // const newurl = `http://localhost:4000/headers`;
   const [displayMenu, setDisplayMenu] = useState(false);
   // const newHeader = () => {
@@ -112,11 +115,11 @@ function Header() {
           
           "
           >
-            {displayMenu && (
+            {smallMenu && (
               <div className="bg-gray-100 h-screen w-64 absolute -top-6 right-0 z-50">
                 <p
                   className="text-2xl cursor-pointer font-bold text-right p-2 mr-4"
-                  onClick={() => setDisplayMenu(!displayMenu)}
+                  onClick={() => setSmallMenu(!smallMenu)}
                 >
                   x
                 </p>
@@ -129,7 +132,7 @@ function Header() {
               className="sm:hidden cursor-pointer mx-4 relative flex items-center"
             >
               <MenuIcon
-                onClick={() => setDisplayMenu(!displayMenu)}
+                onClick={() => setSmallMenu(!smallMenu)}
                 className="h-8"
               />
             </div>

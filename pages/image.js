@@ -1,15 +1,18 @@
 import Head from "next/head";
 import Image from "next/image";
+import React, { useContext } from "react";
 import styles from "../styles/Home.module.css";
 // import { getProducts } from "../lib/services";
-import { servicesQuery, picturesQuery } from "../lib/graphql";
+import {picturesQuery } from "../lib/graphql";
 
 import { graphCmsRequest } from "../lib/services";
 import Galery from "../components/card/Images";
+import { UserContext } from "../components/card/Layout";
 
-export default function image({ myPictures }) {
-
+export default function MyImage({ myPictures }) {
+  const { smallMenu, setSmallMenu } = useContext(UserContext);
   const myPicturesNew = myPictures.images123
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,7 +21,7 @@ export default function image({ myPictures }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main onClick= {() => setSmallMenu(false)} className={styles.main}>
         <Galery myGalery={myPicturesNew} />
         {/* <Post posts={posts} /> */}
       </main>

@@ -1,13 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
+import React, { useContext } from "react";
 import styles from "../styles/Home.module.css";
 // import { getProducts } from "../lib/services";
 import Post from "../components/posts/Post";
 import { servicesQuery, bannersQuery } from "../lib/graphql";
-import { graphCmsRequest, getServicesDetails } from "../lib/services";
-import MyBanner from "../components/card/Banner";
-import VideoHome from "../components/video copy/Video"
+import { graphCmsRequest} from "../lib/services";
+import VideoHome from "../components/video copy/VideoHome"
+import { UserContext } from "../components/card/Layout";
+
 export default function Home({ posts, myServices, myBanner }) {
+  const { smallMenu, setSmallMenu } = useContext(UserContext);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -20,7 +24,7 @@ export default function Home({ posts, myServices, myBanner }) {
         {/* <MyBanner banner={myBanner} /> */}
       </div>
 
-      <main className={styles.main }>
+      <main onClick= {() => setSmallMenu(false)} className={styles.main }>
        
         <div>
         <div className="bg-red-500 h-96 sm:h-screen mb-2 relative mt-4 z-10">
